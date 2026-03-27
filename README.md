@@ -105,12 +105,3 @@ bank.withdraw(john, 1200.0); // Works because of overdraft limit
 
 bank.printAllCustomers();
 ```
-
----
-
-## 📚 Key Learning Points
-
-- **Why no setter for `accountNumber`?** Account numbers are assigned by the system and should never change after creation — encapsulation protects data integrity.
-- **Why is `BankAccount` abstract?** Each account type calculates interest differently — the parent can't know the rate, so it forces subclasses to implement their own logic.
-- **Why does `CurrentAccount` override `withdraw()`?** The parent's validation is too strict for overdraft accounts — the child needs different behavior for the same method.
-- **Why use `protected setBalance()`?** Subclasses need to modify the balance directly (e.g. for overdraft), but outside classes shouldn't be able to — `protected` is the right access level.
